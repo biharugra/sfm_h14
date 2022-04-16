@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="tabDatabase" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.tabDatabaseController">
+   <children>
+      <Button fx:id="btnSearch" layoutX="174.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSerach" text="Search" />
+      <TableView fx:id="tableViewData" layoutY="47.0" prefHeight="453.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="47.0">
+        <columns>
+          <TableColumn fx:id="tcolShopid" prefWidth="110.39996337890625" text="Shop" />
+          <TableColumn fx:id="tcolManufacturer" minWidth="0.0" prefWidth="99.2000732421875" text="Manufacturer" />
+            <TableColumn fx:id="tcolName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="tcolScreen" prefWidth="75.0" text="Screen" />
+            <TableColumn fx:id="tcolMemory" prefWidth="75.0" text="Memory" />
+            <TableColumn fx:id="tcolHdd" prefWidth="75.0" text="Hdd" />
+            <TableColumn fx:id="tcolVga" minWidth="8.800048828125" prefWidth="50.4000244140625" text="Vga" />
+            <TableColumn fx:id="tcolCpu" prefWidth="75.0" text="Cpu" />
+            <TableColumn fx:id="tcolOpsystem" prefWidth="75.0" text="Opsystem" />
+            <TableColumn fx:id="tcolPrice" prefWidth="40.800048828125" text="Price" />
+            <TableColumn fx:id="tcolAmount" prefWidth="109.5999755859375" text="Amount" />
+        </columns>
+      </TableView>
+      <TextField fx:id="textfSearch" layoutX="14.0" layoutY="14.0" />
+   </children>
+</AnchorPane>
