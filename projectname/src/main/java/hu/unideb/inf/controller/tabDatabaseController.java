@@ -7,7 +7,6 @@ package hu.unideb.inf.controller;
 
 import hu.unideb.inf.model.Notebook;
 import java.net.URL;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -74,35 +73,16 @@ public class tabDatabaseController implements Initializable {
     @FXML
     private TextField textfSearch;
 
+    final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
+    final EntityManager entityManager = entityManagerFactory.createEntityManager();
+
     @FXML
     void handleSerach(ActionEvent event) {
-        System.out.println("btn pushed");
-/*
-        final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
-        final EntityManager entityManager = entityManagerFactory.createEntityManager();*/
-
-/*
-        Notebook s = new Notebook();
-        s.setName(textfSearch.getText());
-        s.setPrice(40);
-
-        entityManager.getTransaction().begin();
-        entityManager.persist(s);
-        entityManager.getTransaction().commit();*/
-
-        // test
-        /*
-        ObservableList<Notebook> databaseList =FXCollections.observableArrayList();
-        databaseList.add(new Notebook());*/
-
-/*
-        Query q1 = entityManager.createQuery("SELECT n FROM Notebook n");
-        databaseList = q1.getResultList();*/
+        System.out.println("Search btn pushed");
 
         //adatb listája
-        ObservableList<Notebook> getDatabase = FXCollections.observableArrayList(find());
-        System.out.println(getDatabase);
-
+        ObservableList<Notebook> databaseList = FXCollections.observableArrayList(getDatabase());
+        //System.out.println(databaseList);
 
         // tableview
         tcolShopid.setCellValueFactory(new PropertyValueFactory<Notebook,Integer>("shop_id"));
@@ -117,60 +97,14 @@ public class tabDatabaseController implements Initializable {
         tcolPrice.setCellValueFactory(new PropertyValueFactory<Notebook,Integer>("price"));
         tcolAmount.setCellValueFactory(new PropertyValueFactory<Notebook,Integer>("amount"));
 
-        tableViewData.setItems(getDatabase);
-
+        tableViewData.setItems(databaseList);
     }
-
-    final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
-    final EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-    ObservableList<Notebook> databaseList =FXCollections.observableArrayList();
-    List<Notebook> list = new ArrayList<>();
 
     // lekérdez mindent a notebook táblából
-    public List<Notebook> find() {
+    public List<Notebook> getDatabase() {
         Query q1 = entityManager.createQuery("SELECT n FROM Notebook n");
-
-
         return q1.getResultList();
     }
-
-
-/*
-    @FXML
-    void handleAdd(ActionEvent event) {
-        System.out.println("btn pushed");
-
-        final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
-        final EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-
-        Notebook s = new Notebook();
-        s.setName(textfieldAdd.getText());
-        s.setPrice(40);
-
-        entityManager.getTransaction().begin();
-        entityManager.persist(s);
-        entityManager.getTransaction().commit();
-
-        Notebook getdata = entityManager.find(Notebook.class,10);
-
-        System.out.println(getdata);
-
-        ObservableList<Notebook> list =FXCollections.observableArrayList();
-        list.add(getdata);
-        System.out.println(getdata);
-
-        tcolId.setCellValueFactory(new PropertyValueFactory<Notebook, Integer>("id"));
-        tcolName.setCellValueFactory(new PropertyValueFactory<Notebook, String>("name"));
-        tcolPrice.setCellValueFactory(new PropertyValueFactory<Notebook, String>("price"));
-
-        tableViewData.setItems(list);
-
-
-    }*/
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
