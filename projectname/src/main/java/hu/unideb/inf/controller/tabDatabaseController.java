@@ -24,12 +24,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import javax.persistence.*;
+import javax.swing.*;
 
 
 public class tabDatabaseController implements Initializable {
 
     @FXML
     private Button btnSearch;
+
+    @FXML
+    private Button btnDelete;
 
     @FXML
     private AnchorPane tabDatabase;
@@ -104,6 +108,24 @@ public class tabDatabaseController implements Initializable {
     public List<Notebook> getDatabase() {
         Query q1 = entityManager.createQuery("SELECT n FROM Notebook n");
         return q1.getResultList();
+    }
+
+    @FXML
+    void handleDelete(ActionEvent event){
+
+        //System.out.println("DELETEEE");
+        //tableViewData.getItems().removeAll(tableViewData.getSelectionModel().getSelectedItem());
+
+        int index = tableViewData.getSelectionModel().getSelectedIndex();
+        Notebook n = tableViewData.getItems().get(index);
+
+        entityManager.getTransaction().begin();
+        entityManager.remove(n);
+        entityManager.getTransaction().commit();
+
+        // frissítést csinálni a táblán
+
+
     }
 
     @Override
