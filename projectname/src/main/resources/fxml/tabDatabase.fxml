@@ -39,7 +39,7 @@
                   <Insets left="20.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <Button id="record-sales" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="54.0" prefWidth="60.0" stylesheets="@css/button.css">
+            <Button id="record-sales" fx:id="btnDelete" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleDelete" prefHeight="54.0" prefWidth="60.0" stylesheets="@css/button.css">
                <graphic>
                   <ImageView fitHeight="52.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
                      <image>
