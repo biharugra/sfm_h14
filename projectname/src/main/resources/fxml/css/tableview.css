@@ -1,11 +1,11 @@
 .table-view {
-  -fx-background-color:#BBDEFB;
+  -fx-background-color:#79BEEE;
   -fx-background-radius: 30;
   -fx-fill: white;
 }
 
 .table-view .column-header-background {
-  -fx-background-color: #BBDEFB;
+  -fx-background-color: #79BEEE;
   -fx-background-radius: 30;
   -fx-background-insets: 0 0 10 0;
   -fx-padding: 0 0 10 0;
