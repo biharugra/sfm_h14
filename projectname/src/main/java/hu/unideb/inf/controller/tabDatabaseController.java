@@ -69,7 +69,7 @@ public class tabDatabaseController implements Initializable {
     private TableColumn<Notebook, String> tcolScreen;
 
     @FXML
-    private TableColumn<Notebook, Integer> tcolShopid;
+    private TableColumn<Notebook, String> tcolShop;
 
     @FXML
     private TableColumn<Notebook, String> tcolVga;
@@ -89,7 +89,7 @@ public class tabDatabaseController implements Initializable {
         //System.out.println(databaseList);
 
         // tableview
-        tcolShopid.setCellValueFactory(new PropertyValueFactory<Notebook,Integer>("shop_id"));
+        tcolShop.setCellValueFactory(new PropertyValueFactory<Notebook,String>("shop"));
         tcolManufacturer.setCellValueFactory(new PropertyValueFactory<Notebook,String>("manufacturer"));
         tcolName.setCellValueFactory(new PropertyValueFactory<Notebook,String>("name"));
         tcolScreen.setCellValueFactory(new PropertyValueFactory<Notebook,String>("screen"));

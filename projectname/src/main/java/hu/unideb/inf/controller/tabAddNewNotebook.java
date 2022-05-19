@@ -25,7 +25,7 @@ public class tabAddNewNotebook implements Initializable {
     private Button buttonAdd;
 
     @FXML
-    private ChoiceBox<?> choiceboxShop;
+    private TextField textfieldShop;
 
     @FXML
     private TextField textfieldAmount;
@@ -112,6 +112,7 @@ public class tabAddNewNotebook implements Initializable {
         newNotebook.setPrice(Integer.parseInt(textfieldPrice.getText()));
         newNotebook.setAmount(Integer.parseInt(textfieldAmount.getText()));
 
+        newNotebook.setShop(textfieldShop.getText());
         // shop ?
         //newNotebook.setShop_id();
 

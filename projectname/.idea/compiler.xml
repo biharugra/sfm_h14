@@ -9,6 +9,7 @@
         <module name="projectname" />
         <module name="JavaFX11" />
         <module name="projectname delete" />
+        <module name="projectname yo" />
       </profile>
     </annotationProcessing>
   </component>
